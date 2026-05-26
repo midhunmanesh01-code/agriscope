@@ -3,7 +3,7 @@
 
 **Real-time Agricultural Intelligence Dashboard** for Kerala's 14 districts. Combines live weather, crop health scoring, market prices, flood risk, disease alerts, NASA satellite imagery, and **Gemini AI advisory** in a single browser app.
 
-<img src="https://via.placeholder.com/800x400/0b1410/4ade80?text=AgroScope+Kerala+-+Live+Dashboard" alt="AgroScope Dashboard Preview" width="100%"/>
+<img src="https://github.com/vvramxcec/agriscope/blob/main/Preview.png" alt="AgroScope Dashboard Preview" width="100%"/>
 
 ## 🚀 Features
 
