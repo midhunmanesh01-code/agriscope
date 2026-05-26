@@ -64,12 +64,6 @@ Wayanad | Coffee, Tea, Pepper, Cardamom | 20-28°C, 5-15mm rain
 
 ## 🔧 Key Engineering Solutions
 
-### ✅ Fixed Firebase AI CDN (404)
-```
-❌ BROKEN: firebase-ai.js doesn't exist on gstatic CDN (npm-only)
-✅ FIXED:  Gemini REST API shim (window._firebaseModel.generateContent())
-```
-
 ### ✅ Fixed Open-Meteo 429 Rate Limit
 ```
 ❌ BROKEN: Promise.all(14 districts) → 429 crash → loading screen freeze
