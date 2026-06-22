@@ -17,8 +17,8 @@
   --color-surface-3:     #1c2a20;
   --color-border:        rgba(255,255,255,0.07);
   --color-text:          #e2ede6;
-  --color-text-muted:    #7a9982;
-  --color-text-faint:    #3f5c47;
+  --color-text-muted:    #a8c5b0;
+  --color-text-faint:    #6b8f75;
   --color-primary:       #4ade80;
   --color-primary-dim:   rgba(74,222,128,0.12);
   --color-rain:          #38bdf8;
@@ -39,7 +39,7 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html,body{height:100%;overflow:hidden;}
-body{font-family:var(--font-body);background:var(--color-bg);color:var(--color-text);font-size:13px;line-height:1.5;-webkit-font-smoothing:antialiased;}
+body{font-family:var(--font-body);background:var(--color-bg);color:var(--color-text);font-size:13px;line-height:1.6;-webkit-font-smoothing:antialiased;}
 
 /* TOP BAR */
 #topbar{position:fixed;top:0;left:var(--nav-w);right:0;height:var(--topbar-h);background:var(--color-surface);border-bottom:1px solid var(--color-border);display:flex;align-items:center;gap:12px;padding:0 16px;z-index:1000;}
@@ -157,7 +157,7 @@ body{font-family:var(--font-body);background:var(--color-bg);color:var(--color-t
 .health-sub{font-size:9px;color:var(--color-text-faint);}
 
 /* Advisory items */
-.advisory-item{display:flex;gap:7px;align-items:flex-start;padding:7px 8px;border-radius:6px;background:var(--color-surface-2);border:1px solid var(--color-border);font-size:11px;line-height:1.4;margin:0 14px 6px;}
+.advisory-item{display:flex;gap:7px;align-items:flex-start;padding:7px 8px;border-radius:6px;background:var(--color-surface-2);border:1px solid var(--color-border);font-size:11px;line-height:1.6;margin:0 14px 6px;}
 .advisory-text strong{color:var(--color-text);display:block;margin-bottom:1px;font-size:11px;}
 .advisory-text{color:var(--color-text-muted);}
 
@@ -337,7 +337,7 @@ body{font-family:var(--font-body);background:var(--color-bg);color:var(--color-t
 .tag-market{background:rgba(74,222,128,.18);color:#4ade80;}
 .tag-pest{background:rgba(251,113,133,.18);color:#fb7185;}
 .news-card-title{font-size:11px;font-weight:600;color:var(--color-text);line-height:1.35;}
-.news-card-body{font-size:10px;color:var(--color-text-muted);line-height:1.4;margin-bottom:4px;}
+.news-card-body{font-size:10px;color:var(--color-text-muted);line-height:1.6;margin-bottom:4px;}
 .news-card-meta{display:flex;gap:8px;font-size:9px;color:var(--color-text-faint);}
 .news-source{font-weight:600;color:var(--color-text-muted);}
 .news-card-link{font-size:9px;color:var(--color-primary);text-decoration:none;margin-left:auto;}
@@ -383,7 +383,7 @@ body{font-family:var(--font-body);background:var(--color-bg);color:var(--color-t
 .ai-panel-head{padding:7px 14px 6px;border-bottom:1px solid var(--color-border);display:flex;align-items:center;gap:7px;flex-shrink:0;}
 .ai-panel-title{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--color-text-muted);}
 .ai-chat-history{flex:1;overflow-y:auto;padding:10px 12px;display:flex;flex-direction:column;gap:8px;}
-.ai-bubble{max-width:85%;padding:8px 11px;border-radius:10px;font-size:11px;line-height:1.5;}
+.ai-bubble{max-width:85%;padding:8px 11px;border-radius:10px;font-size:11px;line-height:1.6;}
 .ai-bubble.user{background:var(--color-primary-dim);border:1px solid rgba(74,222,128,.25);color:var(--color-text);align-self:flex-end;border-bottom-right-radius:3px;}
 .ai-bubble.bot{background:var(--color-surface-2);border:1px solid var(--color-border);color:var(--color-text);align-self:flex-start;border-bottom-left-radius:3px;}
 .ai-bubble.bot strong{color:var(--color-primary);}
@@ -423,6 +423,21 @@ body{font-family:var(--font-body);background:var(--color-bg);color:var(--color-t
 .ai-welcome-title{font-size:13px;font-weight:700;color:var(--color-text-muted);margin-bottom:4px;}
 .ai-welcome-sub{font-size:10px;line-height:1.5;}
 
+@media (max-width: 768px) {
+  :root { --right-w: 0px; --nav-w: 0px; }
+  #nav { display: none; }
+  #right-panel { display: none; }
+  #main { left: 0; right: 0; }
+  #topbar { left: 0; }
+  body { font-size: 14px; line-height: 1.6; }
+  .ai-bubble, .advisory-item, .news-card-body,
+  .adv-msg, .scheme-body, .imd-body {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .kpi-value { font-size: 15px; }
+  .dd-stat-value { font-size: 13px; }
+}
 </style>
 
   <!-- Gemini AI Shim (firebase-ai.js CDN unavailable; using Gemini REST API directly) -->
