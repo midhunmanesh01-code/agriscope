@@ -1,0 +1,16 @@
+{
+  "Alappuzha":         {"flood":95,"landslide":10,"wind":70,"primary":"flood"},
+  "Idukki":            {"flood":55,"landslide":95,"wind":20,"primary":"landslide"},
+  "Wayanad":           {"flood":50,"landslide":92,"wind":15,"primary":"landslide"},
+  "Ernakulam":         {"flood":78,"landslide":35,"wind":55,"primary":"flood"},
+  "Pathanamthitta":    {"flood":72,"landslide":65,"wind":25,"primary":"flood"},
+  "Kottayam":          {"flood":70,"landslide":55,"wind":30,"primary":"flood"},
+  "Kozhikode":         {"flood":60,"landslide":40,"wind":70,"primary":"wind"},
+  "Thrissur":          {"flood":65,"landslide":30,"wind":45,"primary":"flood"},
+  "Malappuram":        {"flood":58,"landslide":48,"wind":50,"primary":"flood"},
+  "Palakkad":          {"flood":55,"landslide":35,"wind":40,"primary":"flood"},
+  "Kollam":            {"flood":60,"landslide":40,"wind":55,"primary":"flood"},
+  "Kannur":            {"flood":50,"landslide":45,"wind":65,"primary":"wind"},
+  "Kasaragod":         {"flood":45,"landslide":35,"wind":70,"primary":"wind"},
+  "Thiruvananthapuram":{"flood":48,"landslide":40,"wind":60,"primary":"wind"}
+}

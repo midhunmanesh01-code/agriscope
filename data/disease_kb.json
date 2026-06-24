@@ -1,0 +1,371 @@
+[
+  {
+    "id": "phytophthora",
+    "name": "Phytophthora / Quick Wilt",
+    "emoji": "🍂",
+    "crops": [
+      "Pepper"
+    ],
+    "peakMonths": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "rules": {
+      "rainMin": 20,
+      "tempMax": 28,
+      "humMin": 85
+    },
+    "w": {
+      "rain": 35,
+      "temp": 30,
+      "hum": 35
+    },
+    "action": "Spray Potassium Phosphonate 3ml/L. Improve drainage. Apply Trichoderma to soil.",
+    "src": "KAU PoP 2016"
+  },
+  {
+    "id": "budrot",
+    "name": "Bud Rot",
+    "emoji": "🥥",
+    "crops": [
+      "Coconut"
+    ],
+    "peakMonths": [
+      6,
+      7,
+      8
+    ],
+    "rules": {
+      "rainMin": 15,
+      "humMin": 88,
+      "tempMin": 24,
+      "tempMax": 31
+    },
+    "w": {
+      "rain": 30,
+      "hum": 40,
+      "temp": 30
+    },
+    "action": "Remove infected spindles. Spray Bordeaux Mixture 1%. Avoid waterlogging.",
+    "src": "Kerala Agri Dept"
+  },
+  {
+    "id": "stemborer",
+    "name": "Stem Borer",
+    "emoji": "🌾",
+    "crops": [
+      "Rice"
+    ],
+    "peakMonths": [
+      7,
+      8,
+      9,
+      10
+    ],
+    "rules": {
+      "tempMin": 25,
+      "tempMax": 32,
+      "humMin": 75,
+      "rainMin": 5,
+      "rainMax": 15
+    },
+    "w": {
+      "temp": 30,
+      "hum": 35,
+      "rain": 35
+    },
+    "action": "Apply Carbofuran 3G 25kg/ha. Set light traps. Destroy egg masses.",
+    "src": "ICAR Rice IPM"
+  },
+  {
+    "id": "sheathblight",
+    "name": "Sheath Blight",
+    "emoji": "🌿",
+    "crops": [
+      "Rice"
+    ],
+    "peakMonths": [
+      8,
+      9
+    ],
+    "rules": {
+      "tempMin": 28,
+      "humMin": 80,
+      "rainMin": 10
+    },
+    "w": {
+      "temp": 35,
+      "hum": 35,
+      "rain": 30
+    },
+    "action": "Spray Hexaconazole 1ml/L or Validamycin 2ml/L. Avoid excess nitrogen.",
+    "src": "ICAR Rice IPM"
+  },
+  {
+    "id": "riceblast",
+    "name": "Rice Blast",
+    "emoji": "💨",
+    "crops": [
+      "Rice"
+    ],
+    "peakMonths": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "rules": {
+      "tempMin": 22,
+      "tempMax": 28,
+      "humMin": 89,
+      "rainMin": 5
+    },
+    "w": {
+      "temp": 25,
+      "hum": 45,
+      "rain": 30
+    },
+    "action": "Spray Tricyclazole 0.6g/L. Avoid late-evening irrigation.",
+    "src": "ICAR"
+  },
+  {
+    "id": "pinkdisease",
+    "name": "Pink Disease",
+    "emoji": "🌳",
+    "crops": [
+      "Rubber"
+    ],
+    "peakMonths": [
+      6,
+      7,
+      8
+    ],
+    "rules": {
+      "rainMin": 25,
+      "humMin": 85,
+      "tempMin": 24,
+      "tempMax": 29
+    },
+    "w": {
+      "rain": 35,
+      "hum": 35,
+      "temp": 30
+    },
+    "action": "Spray Tridemorph 5ml/L on branches. Apply Bordeaux paste on wounds.",
+    "src": "Rubber Board India"
+  },
+  {
+    "id": "katte",
+    "name": "Cardamom Katte (Mosaic)",
+    "emoji": "💚",
+    "crops": [
+      "Cardamom"
+    ],
+    "peakMonths": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "rules": {
+      "humMin": 82,
+      "tempMin": 18,
+      "tempMax": 26
+    },
+    "w": {
+      "hum": 50,
+      "temp": 50
+    },
+    "action": "Rogue infected plants. Control aphids with Imidacloprid 0.3ml/L.",
+    "src": "Spices Board India"
+  },
+  {
+    "id": "leafblight",
+    "name": "Banana Leaf Blight",
+    "emoji": "🍌",
+    "crops": [
+      "Banana"
+    ],
+    "peakMonths": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "rules": {
+      "tempMin": 29,
+      "humMin": 78
+    },
+    "w": {
+      "temp": 50,
+      "hum": 50
+    },
+    "action": "Spray Propiconazole 1ml/L. Remove affected leaves.",
+    "src": "KAU PoP"
+  },
+  {
+    "id": "redrotcoffee",
+    "name": "Red Root Rot",
+    "emoji": "☕",
+    "crops": [
+      "Coffee"
+    ],
+    "peakMonths": [
+      6,
+      7,
+      8
+    ],
+    "rules": {
+      "rainMin": 18,
+      "tempMin": 20,
+      "tempMax": 28,
+      "humMin": 78
+    },
+    "w": {
+      "rain": 35,
+      "temp": 30,
+      "hum": 35
+    },
+    "action": "Drench with Copper Oxychloride 3g/L. Improve drainage.",
+    "src": "Coffee Board India"
+  },
+  {
+    "id": "mealybug",
+    "name": "Mealy Bug",
+    "emoji": "🔵",
+    "crops": [
+      "Pepper",
+      "Coconut"
+    ],
+    "peakMonths": [
+      12,
+      1,
+      2,
+      3
+    ],
+    "rules": {
+      "dryDaysMin": 4,
+      "tempMin": 30
+    },
+    "w": {
+      "dryDays": 50,
+      "temp": 50
+    },
+    "action": "Spray Dimethoate 2ml/L or Neem oil 5ml/L.",
+    "src": "KAU PoP"
+  },
+  {
+    "id": "bph",
+    "name": "Brown Plant Hopper",
+    "emoji": "🌾",
+    "crops": [
+      "Rice"
+    ],
+    "peakMonths": [
+      8,
+      9,
+      10
+    ],
+    "rules": {
+      "tempMin": 26,
+      "tempMax": 30,
+      "humMin": 82,
+      "rainMin": 8
+    },
+    "w": {
+      "temp": 25,
+      "hum": 40,
+      "rain": 35
+    },
+    "action": "Spray Buprofezin 1ml/L. Maintain 2-3 cm water level.",
+    "src": "ICAR Rice IPM"
+  },
+  {
+    "id": "anthracnose",
+    "name": "Anthracnose",
+    "emoji": "🫚",
+    "crops": [
+      "Pepper",
+      "Ginger"
+    ],
+    "peakMonths": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "rules": {
+      "tempMin": 24,
+      "tempMax": 30,
+      "humMin": 78,
+      "rainMin": 12
+    },
+    "w": {
+      "temp": 25,
+      "hum": 35,
+      "rain": 40
+    },
+    "action": "Spray Mancozeb 2.5g/L or Carbendazim 1g/L.",
+    "src": "Spices Board India"
+  },
+  {
+    "id": "rhinobeetle",
+    "name": "Rhinoceros Beetle",
+    "emoji": "🐛",
+    "crops": [
+      "Coconut"
+    ],
+    "peakMonths": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "rules": {
+      "dryDaysMin": 5,
+      "tempMin": 31
+    },
+    "w": {
+      "dryDays": 50,
+      "temp": 50
+    },
+    "action": "Apply Metarhizium anisopliae. Remove decaying matter. Set pheromone traps.",
+    "src": "CPCRI Kerala"
+  },
+  {
+    "id": "rhizomerot",
+    "name": "Turmeric Rhizome Rot",
+    "emoji": "🟡",
+    "crops": [
+      "Turmeric"
+    ],
+    "peakMonths": [
+      7,
+      8,
+      9
+    ],
+    "rules": {
+      "rainMin": 25,
+      "humMin": 83,
+      "tempMin": 25
+    },
+    "w": {
+      "rain": 35,
+      "hum": 35,
+      "temp": 30
+    },
+    "action": "Drench with Metalaxyl-M 2g/L. Improve bed drainage.",
+    "src": "ICAR Spices"
+  }
+]
