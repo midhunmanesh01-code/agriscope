@@ -1,6 +1,8 @@
 // ═══════════════════════════════════════════════════════
 //  PEST & DISEASE ENGINE — KAU/ICAR rule-based risk model
+//  Depends on: DISTRICTS, weatherData, healthScores
 // ═══════════════════════════════════════════════════════
+
 function computePestRisk(disease, districtName){
   const wd = weatherData[districtName];
   if(!wd||!wd.daily) return 0;
@@ -49,8 +51,9 @@ function pestEmoji(l){ return l==='high'?'🔴':l==='moderate'?'🟠':'🟡'; }
 
 function pestMapScore(districtName){
   // max risk score across all diseases for this district
+  const kb = Array.isArray(DISEASE_KB) ? DISEASE_KB : [];
   let max=0;
-  DISEASE_KB.forEach(d=>{ const s=computePestRisk(d,districtName); if(s>max) max=s; });
+  kb.forEach(d=>{ const s=computePestRisk(d,districtName); if(s>max) max=s; });
   return max;
 }
 
@@ -64,8 +67,9 @@ function pestMapColor(score){
 // ── Right panel pest cards ────────────────────────────────────────────────────
 function renderPestCards(){
   const list=document.getElementById('pest-cards-list'); if(!list) return;
+  const kb = Array.isArray(DISEASE_KB) ? DISEASE_KB : [];
   const results=[];
-  DISEASE_KB.forEach(disease=>{
+  kb.forEach(disease=>{
     let maxScore=0; const topDistricts=[];
     DISTRICTS.forEach(d=>{
       const s=computePestRisk(disease,d.name);
@@ -102,8 +106,9 @@ function renderPestCards(){
 // ── District popup pest tab ────────────────────────────────────────────────────
 function populateDDPests(districtName){
   const list=document.getElementById('dd-pest-list'); if(!list) return;
+  const kb = Array.isArray(DISEASE_KB) ? DISEASE_KB : [];
   const results=[];
-  DISEASE_KB.forEach(disease=>{
+  kb.forEach(disease=>{
     const score=computePestRisk(disease,districtName);
     if(score>=22) results.push({disease,score});
   });
@@ -114,7 +119,7 @@ function populateDDPests(districtName){
     const month=new Date().getMonth()+1;
     const upcoming=[];
     const mNames=['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    DISEASE_KB.forEach(disease=>{
+    kb.forEach(disease=>{
       const next=disease.peakMonths.find(m=>m>month)||disease.peakMonths[0];
       const away=next>month?next-month:(12-month)+next;
       if(away<=3) upcoming.push({disease,next,away});
