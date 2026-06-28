@@ -1,3 +1,9 @@
+let CROP_KB = {};
+
+let _geminiKey = '';
+let _aiHistory = [];
+let _aiInited = false;
+
 function ruleEngineAnswer(question, districtName){
   const q = question.toLowerCase();
   const dist = DISTRICTS.find(d=>d.name===districtName)||null;
@@ -118,6 +124,57 @@ Farmer's question: ${question}`;
   throw new Error('No AI backend available');
 }
 
+function waitForFirebase(timeoutMs=4000){
+  return new Promise(resolve=>{
+    if(window._firebaseReady!==undefined){ resolve(window._firebaseReady); return; }
+    const start=Date.now();
+    const iv=setInterval(()=>{
+      if(window._firebaseReady!==undefined||Date.now()-start>timeoutMs){
+        clearInterval(iv);
+        resolve(!!window._firebaseReady);
+      }
+    },100);
+  });
+}
+
+async function aiSend(){
+  const ta=document.getElementById('ai-textarea');
+  const btn=document.getElementById('ai-send-btn');
+  const sel=document.getElementById('ai-district-sel');
+  const hist=document.getElementById('ai-chat-history');
+  const q=ta.value.trim();if(!q)return;
+  // Wait for Firebase module to finish loading (handles async ES module timing)
+  if(window._firebaseReady===undefined) await waitForFirebase(3000);
+  const district=sel.value||'';
+  const welcome=hist.querySelector('.ai-welcome');if(welcome)welcome.remove();
+  hist.innerHTML+=`<div class="ai-bubble user">${escHtml(q)}<div class="ai-bubble-meta">${district||'All Kerala'} · ${new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'})}</div></div>`;
+  ta.value='';btn.disabled=true;
+  const tid='t'+Date.now();
+  hist.innerHTML+=`<div class="ai-bubble bot thinking" id="${tid}">⟳ Thinking…</div>`;
+  hist.scrollTop=hist.scrollHeight;
+  _aiHistory.push({role:'user',text:q});
+  let ans='';
+  try{
+    // Check Firebase (may still be loading — waitForFirebase polls up to 3s)
+    const fbReady = window._firebaseReady !== undefined
+      ? window._firebaseReady
+      : await waitForFirebase(3000);
+    if(fbReady || (_geminiKey && _geminiKey.length>20)){
+      ans = await geminiAnswer(q, district);
+    }
+    else ans=ruleEngineAnswer(q,district);
+  }catch(e){
+    ans=`⚠️ ${e.message}\n\nFalling back to rule engine:\n\n${ruleEngineAnswer(q,district)}`;
+  }
+  _aiHistory.push({role:'model',text:ans});
+  const th=document.getElementById(tid);if(th)th.remove();
+  const fmt=ans.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');
+  hist.innerHTML+=`<div class="ai-bubble bot">${fmt}<div class="ai-bubble-meta">${window._firebaseReady?'Firebase AI':(_geminiKey&&_geminiKey.length>20)?'Gemini AI':'Rule Engine'} · ${district||'All Kerala'} · ${new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'})}</div></div>`;
+  hist.scrollTop=hist.scrollHeight;
+  btn.disabled=false;
+  renderAIQuickCards(district);
+}
+
 function aiKeydown(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();aiSend();}}
 
 function onApiKeyInput(val){
@@ -134,18 +191,6 @@ function aiChip(text){
   aiSend();
 }
 
-function waitForFirebase(timeoutMs=4000){
-  return new Promise(resolve=>{
-    if(window._firebaseReady!==undefined){ resolve(window._firebaseReady); return; }
-    const start=Date.now();
-    const iv=setInterval(()=>{
-      if(window._firebaseReady!==undefined||Date.now()-start>timeoutMs){
-        clearInterval(iv);
-        resolve(!!window._firebaseReady);
-      }
-    },100);
-  });
-}
 
 function renderAIQuickCards(districtName){
   const list=document.getElementById('ai-quick-list');if(!list)return;

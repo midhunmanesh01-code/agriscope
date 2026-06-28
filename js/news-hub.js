@@ -62,7 +62,15 @@ function switchNav(view, btn){
   closeDetail();
 }
 
+// ── Govt Schemes (static, Kerala-specific) ──────────────────────────────────
+
 let SCHEMES = [];
+
+// ── News state ───────────────────────────────────────────────────────────────
+let _allNewsItems = [];
+let _advFilter = 'all';
+let _newsFilter = 'all';
+
 
 function buildWeatherNewsItems(){
   const items = [];
@@ -413,6 +421,8 @@ async function loadSchemes(){
     renderSchemes(SCHEMES);
 }
 }
+
+let _newsHubInited = false;
 
 function initNewsHub(){
   renderSchemes();
